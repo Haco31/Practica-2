@@ -5,7 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<p id="miParrafo">Hola, Harol</p>
+<script>
+    let parrafo = document.getElementById("miParrafo");
+    parrafo.innerHTML = "¡Hola, Harol!";
+    parrafo.style.color = "violet";
+</script>
 <body>
-    <script src="index3.js" defer></script>
+    <script type="module" src="index26.js" defer></script>
+    <template id="Mi componente">
+        <style>
+            p { color: red; }
+        </style>
+        <p>Este es un componente reutilizable</p>
+    </template>
+<!-- contenedor donde se insertará el contenido del template -->
+    <div id="contenedor"></div>
+
+    <script>
+        // Obtener el contenido del template
+        const template = document.getElementById("Mi componente").content;
+
+        // Clonar el contenido del template
+        const clone = document.importNode(template, true);
+
+        // Insertar el contenido clonado en el contenedor
+        document.gerElementById("Contenedor").appendChild(clone);
+    </script>
 </body>
+<button id="miBoton">Haz clic</button>
+<button id="reset">reset</button>
+<script>
+    document.getElementById("miBoton").addEventListener("click", function() {
+        alert("¡Botón clickeado!");
+    });
+    document.getElementById("reset").addEventListener("click", function() {
+        alert("¡Se ha reseteado!");
+    });
+</script>
 </html>
